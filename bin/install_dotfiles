@@ -1,0 +1,18 @@
+#!/bin/bash
+
+date=`date +%F-%k-%M-%S`
+
+touch ~/.bashrc.local
+touch ~/.gitconfig.local
+
+mkdir -p ~/dotfiles/backup
+
+for f in bashrc bash_profile gitconfig
+do
+  if [ -f ~/.$f ]
+  then
+    echo "Backing up .$f"
+    cp ~/.$f ~/dotfiles/backup/.$f.$date
+  fi
+  cp ~/dotfiles/donors/.$f ~/.$f
+done

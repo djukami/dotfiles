@@ -1,0 +1,12 @@
+[color]
+  ui = auto
+ 
+[alias]
+  st = status
+  cm = commit -m
+  br = branch
+  co = checkout
+  dc = diff --cached
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files

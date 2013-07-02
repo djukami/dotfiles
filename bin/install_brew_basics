@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Homebrew
+#
+# This installs some of the common dependencies needed (or at least desired)
+# using Homebrew.
+
+# Check for Homebrew
+if test ! $(which brew)
+then
+  echo "  x You should probably install Homebrew first:"
+  echo "    https://github.com/mxcl/homebrew/wiki/installation"
+  echo "      OR"
+  echo "    http://techn.ocr.at/post/39539602675/ruby-e-curl-fsskl"
+  exit
+fi
+
+# Install homebrew packages
+brew install wget bash-completion
+
+exit 0

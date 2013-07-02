@@ -39,5 +39,12 @@ BCYAN='\e[46m'
 BWHITE='\e[47m'
 
 
-
+# Set the prompt
 PS1="\u:\w → "
+
+
+
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  source `brew --prefix`/etc/bash_completion
+fi

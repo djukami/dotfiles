@@ -4,31 +4,219 @@
 #
 # The original idea (and a couple settings) were grabbed from:
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# And:
+#   https://github.com/holman/dotfiles/blob/master/osx/set-defaults.sh
 #
-# Run ./set-defaults.sh and you'll be good to go.
+# Run ./set_osx_defaults.sh and you'll be good to go.
 
-# Disable press-and-hold for keys in favor of key repeat.
-#defaults write -g ApplePressAndHoldEnabled -bool false
+###############################################################################
+# Screensaver                                                                 #
+###############################################################################
+
+# Set the screensaver to Flurry
+defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Flurry" path "/System/Library/Screen Savers/Flurry.saver" type -int 0
+
+# Set the timeout to 5 minutes
+defaults -currentHost write com.apple.screensaver idleTime 300
+
+# Run the screensaver if we're in the bottom-left hot corner.
+defaults write com.apple.dock wvous-bl-corner -int 5
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+
+###############################################################################
+# Keyboard                                                                    #
+###############################################################################
+
+# Keep press-and-hold for keys in favor of key repeat, requires restart
+defaults write -g ApplePressAndHoldEnabled -bool true
+
+# Set a really fast key repeat, default is 120
+defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Disable caps lock modifier key
+# See: http://apple.stackexchange.com/questions/13598/updating-modifier-key-mappings-through-defaults-command-tool
+
+###############################################################################
+# Trackpad                                                                    #
+###############################################################################
+
+# # Disable 3 finger lookup
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
+# defaults write -g com.apple.trackpad.threeFingerTapGesture -int 0
+# defaults -currentHost write -g com.apple.trackpad.threeFingerTapGesture -int 0
+
+# # Enable 3 finger dragging
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 0
+# defaults write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+# defaults -currentHost write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 0
+# defaults write -g com.apple.trackpad.threeFingerVertSwipeGesture -int 0
+# defaults -currentHost write -g com.apple.trackpad.threeFingerVertSwipeGesture -int 0
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -int 1
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -int 1
+# defaults write -g com.apple.trackpad.threeFingerDrag -int 1
+# defaults -currentHost write -g com.apple.trackpad.threeFingerDrag -int 1
+
+# # Disable Tap to Click
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false
+# defaults write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+# defaults -currentHost write -g com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+
+# # Enable secondary click
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
+# defaults write -g com.apple.trackpad.cornerSecondaryClick -int 0
+# defaults -currentHost write -g com.apple.trackpad.cornerSecondaryClick -int 0
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults write -g com.apple.trackpad.enableSecondaryClick -bool true
+# defaults -currentHost write -g com.apple.trackpad.enableSecondaryClick -bool true
+
+# # Enable natural direction scrolling
+# defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+
+# # Disable swipe between pages
+
+# # Disable swipe between fullscreen apps
+
+# # Mission control use 4 fingers up
+# defaults write com.apple.dock showMissionControlGestureEnabled -bool false
+
+# # App Exposé use 4 fingers down
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 0
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 0
+# defaults write -g com.apple.trackpad.fourFingerVertSwipeGesture -int 0
+# defaults -currentHost write -g com.apple.trackpad.fourFingerVertSwipeGesture -int 0
+# #??? defaults -currentHost write NSGlobalDomain com.apple.trackpad.fourFingerVertSwipeGesture -int 0
+
+# # Pinch for launchpad
+# defaults write com.apple.dock showLaunchpadGestureEnabled -bool false
+
+# # Unpinch for desktop
+# defaults write com.apple.dock showDesktopGestureEnabled -bool false
+
+
+#TODO: make changes for real, then run "defaults read com.apple.driver.AppleBluetoothMultitouch.trackpad"
+
+###############################################################################
+# Accessability                                                               #
+###############################################################################
+
+# Flash the screen when an alert occurs
+
+# Use scroll gesture to zoom
+defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+
+# Follow the keyboard focus while zoomed in
+defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+
+# Enable access for assistive devices
+#sudo osascript -e 'tell application "System Events" to set UI elements enabled to true'
+
+###############################################################################
+# Spaces                                                                      #
+###############################################################################
+
+# Disable show dashboard as a space
+defaults write com.apple.dock dashboard-in-overlay -bool false
+###### Does this work???
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+
+###############################################################################
+# Screenshots                                                                 #
+###############################################################################
+
+# Save screenshots to the special folder
+mkdir -p "$HOME/Pictures"
+mkdir -p "$HOME/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
 
 # Use AirDrop over every interface. srsly this should be a default.
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Always open everything in Finder's list view. This is important.
+#   Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
-# Set a really fast key repeat.
-#defaults write NSGlobalDomain KeyRepeat -int 0
-
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
-# Run the screensaver if we're in the bottom-left hot corner.
-defaults write com.apple.dock wvous-bl-corner -int 5
-defaults write com.apple.dock wvous-bl-modifier -int 0
+# Hide hidden files by default
+defaults write com.apple.finder AppleShowAllFiles -bool false
+
+# Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Empty Trash securely by default
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+
+# Folder contents on preview
+defaults write com.apple.finder QLEnableXRayFolders 1
+###### Does this work???
+
+# Disable the creation of .DS_store files on network shares
+defaults write com.apple.desktopservices DSDontWriteNetworkStores TRUE
+
+# Change the sidebar displayed devices
+
+
+###############################################################################
+# Menu Bar                                                                    #
+###############################################################################
+
+# Show battery percentage, since 10.8+ does not show time
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+# defaults write com.apple.menuextra.battery ShowTime -string "YES"
+
+# Menu bar: hide the Volume icon, enable Keychain menu to easily lock system
+defaults write com.apple.systemuiserver menuExtras -array "/Applications/Utilities/Keychain Access.app/Contents/Resources/Keychain.menu" "/System/Library/CoreServices/Menu Extras/iChat.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+
+###############################################################################
+# Safari                                                                      #
+###############################################################################
+
+# Set Safari’s home page to "about:blank" for faster loading
+defaults write com.apple.Safari HomePage -string "about:blank"
 
 # Hide Safari's bookmark bar.
 defaults write com.apple.Safari ShowFavoritesBar -bool false
@@ -39,3 +227,13 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
+
+for app in "Dashboard" "Dock" "Finder" "Safari" "SystemUIServer"; do
+  killall "$app" > /dev/null 2>&1
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."

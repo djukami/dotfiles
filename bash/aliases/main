@@ -1,1 +1,2 @@
+alias re_source='source ~/.bashrc'
 alias gti='git'

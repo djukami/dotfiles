@@ -2,6 +2,7 @@
   ui = true
 
 [alias]
+  git = daisy
   st = status --short --branch
   cm = commit -m
   br = branch

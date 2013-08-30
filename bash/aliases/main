@@ -2,3 +2,7 @@ alias re_source='source ~/.bashrc'
 alias gti='git'
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\  -f2"
 alias be='bundle exec'
+
+alias lsd='find . -name'
+
+check () { ps -Al | grep $1 | grep -v "grep $1"; }

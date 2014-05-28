@@ -13,7 +13,7 @@
   dt = difftool
   ls = ls-files
   ign = ls-files -o -i --exclude-standard
-  pr = pull --rebase
+  pr = "!git fetch && git pull --rebase"
   lg = log --decorate --pretty=oneline
   lop = log -p
   los = log --stat

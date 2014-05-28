@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# Daisy chain your git command, i.e. "git daisy status" === "git status"
-
-git "$@"

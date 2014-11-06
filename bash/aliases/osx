@@ -3,5 +3,5 @@ alias saver="osascript -e 'tell application id \"com.apple.ScreenSaver.Engine\" 
 alias expose="osascript -e 'tell application id \"com.apple.exposelauncher\" to launch'"
 alias ipcopy="myip | pbcopy"
 
-alias chropen="open -a /Applications/Google\ Chrome.app --new --args --new-window"
-alias codepen="chropen http://codepen.io/pen/"
+alias chrome="open -a /Applications/Google\ Chrome.app --new --args --new-window"
+alias codepen="chrome http://codepen.io/pen/"

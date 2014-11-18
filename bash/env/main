@@ -1,1 +1,6 @@
+# Create normal directories if they don't exist
+[[ ! -d "$HOME/Projects" ]] && mkdir "$HOME/Projects"
+[[ ! -d "$HOME/Developer" ]] && mkdir "$HOME/Developer"
+[[ ! -d "$HOME/Developer/bin" ]] && mkdir "$HOME/Developer/bin"
+
 export PATH=$PATH:$HOME/Developer/bin:$HOME/.dotfiles/bin

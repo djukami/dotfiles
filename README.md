@@ -9,11 +9,11 @@ There are many dotfiles, but this one is mine.
 Run this:
 
 ```sh
-git clone https://github.com/djukami/dotfiles.git ~/dotfiles
-~/dotfiles/bin/install_dotfiles
+git clone https://github.com/djukami/dotfiles.git ~/.dotfiles
+~/.dotfiles/bin/install_dotfiles
 ```
 
-This will backup your existing important files (see `~/dotfiles/backup`) and install versions that link to the dotfiles' implementations.
+This will backup your existing important files (see `~/.dotfiles/backup`) and install versions that link to the dotfiles' implementations.
 
 It also creates `.bashrc.local` and `.gitconfig.local` for you to put private data (e.g. GitHub API keys).
 

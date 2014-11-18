@@ -1,2 +1,2 @@
-source ~/dotfiles/bashrc
+source ~/.dotfiles/bashrc
 source ~/.bashrc.local

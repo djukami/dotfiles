@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# Set project directories as alias to cd into itself if not a reserved word, executable in the path or an alias.
+#
+# USAGE:
+#
+#   $ project_alias
+#   # => Set project directories as alias, using ~/Projects
+#
+#   $ project_alias /path/to/directory
+#   # => Set project directories as alias, using /path/to/directory
+
+BLACKLIST=(break colon continue dot eval exec exit export readonly return set shift times trap unset basename cat cd chgrp chmod chown cksum cmp cp dd df dirname du find ln ls mkdir mv pathchk pwd rm rmdir sh sum test touch ulimit)
+
+COMMAND="cd"
+
+if [ "$1" == "" ]
+then
+  PROJECT_DIR="$HOME/Projects"
+else
+  PROJECT_DIR="$1"
+fi
+
+if [ -d "$PROJECT_DIR" ]
+then
+  for DIR in $(find $PROJECT_DIR/* -maxdepth 0 -type d );
+  do
+    FOLDER_NAME=$(basename $DIR);
+
+    if [[ ! ${BLACKLIST[*]} =~ "$FOLDER_NAME" ]]
+    then
+      if ! hash $FOLDER_NAME 2>/dev/null
+      then
+        if ! alias "$FOLDER_NAME" 2> /dev/null
+        then
+          eval "alias ${FOLDER_NAME}='${COMMAND} \"${PROJECT_DIR}/${FOLDER_NAME}\"'"
+        fi
+      fi
+    fi
+  done
+else
+  echo "Directory does not exist: $PROJECT_DIR" >&2
+fi

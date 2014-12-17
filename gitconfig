@@ -20,6 +20,7 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   log = log --decorate
+  aliases = "config --get-regexp ^alias"
 
 [core]
   autocrlf = input

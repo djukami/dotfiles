@@ -14,7 +14,7 @@
   ls = ls-files
   ign = ls-files -o -i --exclude-standard
   pr = "!git fetch && git pull --rebase"
-  lg = log --decorate --pretty=oneline
+  lg = log --decorate --pretty=oneline --abbrev-commit
   lop = log -p
   los = log --stat
   lol = log --graph --decorate --pretty=oneline --abbrev-commit

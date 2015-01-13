@@ -19,6 +19,8 @@
   los = log --stat
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  log-sha = log --format="%H"
+  sha = rev-parse HEAD
   log = log --decorate
   aliases = "config --get-regexp ^alias"
 

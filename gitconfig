@@ -22,6 +22,7 @@
   log-sha = log --format="%H"
   sha = rev-parse HEAD
   log = log --decorate
+  head = log --stat --decorate -1 HEAD
   aliases = "config --get-regexp ^alias"
 
 [core]

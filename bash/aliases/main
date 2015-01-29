@@ -9,3 +9,10 @@ alias lsd='find . -name'
 check () { ps -Al | grep $1 | grep -v "grep $1"; }
 
 alias flush_memcache='echo "flush_all" | nc 127.0.0.1 11211'
+
+function cd () {
+    builtin cd "$@"
+    if [ -f .cdrc ]; then
+        source .cdrc
+    fi
+}

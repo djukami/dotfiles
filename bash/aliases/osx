@@ -1,4 +1,6 @@
 alias pbstrip="pbpaste | pbcopy"
+alias pbsha="git rev-parse HEAD | tr -d '\n' | pbcopy"
+
 alias saver="osascript -e 'tell application id \"com.apple.ScreenSaver.Engine\" to launch'"
 alias expose="osascript -e 'tell application id \"com.apple.exposelauncher\" to launch'"
 alias ipcopy="myip | pbcopy"

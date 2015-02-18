@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# run git-diff against the first unstaged file
+
+git diff `git first-unstaged-file`

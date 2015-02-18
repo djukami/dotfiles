@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# run git-add against the first unstaged file
+
+FILENAME=$(git first-unstaged-file)
+git add $FILENAME
+echo "Added: $FILENAME"

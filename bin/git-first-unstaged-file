@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# returns the first unstaged file
+
+git diff --name-only --relative | head -n 1

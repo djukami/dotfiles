@@ -4,3 +4,5 @@
 [[ ! -d "$HOME/Developer/bin" ]] && mkdir "$HOME/Developer/bin"
 
 export PATH=$PATH:$HOME/Developer/bin:$HOME/.dotfiles/bin
+
+export CDPATH=.:$HOME:$HOME/Projects

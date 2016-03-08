@@ -1,3 +1,7 @@
 #!/bin/bash
 
-"/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" "$@"
+if [ -d "/Applications/Sublime Text.app" ]; then
+    "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "$@"
+elif [ -d "/Applications/Sublime Text 2.app" ]; then
+    "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" "$@"
+fi

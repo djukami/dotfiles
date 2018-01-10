@@ -23,7 +23,7 @@
   sha = rev-parse HEAD
   log = log --decorate
   head = log --stat --decorate -1 HEAD
-  aliases = "config --get-regexp ^alias"
+  aliases = !git config --get-regexp ^alias | cut -c 7-
   recent = !git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname)' | cut -c 12- | head
 
 [core]

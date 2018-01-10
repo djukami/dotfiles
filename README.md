@@ -9,7 +9,7 @@ There are many dotfiles, but this one is mine.
 Run this:
 
 ```sh
-git clone https://github.com/djukami/dotfiles.git ~/.dotfiles
+git clone https://github.com/thewillk/dotfiles.git ~/.dotfiles
 ~/.dotfiles/bin/install_dotfiles
 ```
 

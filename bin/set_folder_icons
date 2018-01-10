@@ -1,0 +1,10 @@
+ICON_PATH=$HOME/.dotfiles/assets/folder_icons
+FILEICON_CMD=$HOME/.dotfiles/node_modules/.bin/fileicon
+
+cd $HOME/.dotfiles
+npm install
+
+for IMAGE_PATH in $( find $ICON_PATH/*.png -type f ); do
+  DIR_NAME=`expr "$IMAGE_PATH" : "^$ICON_PATH/\(.*\)\.png$"`
+  [[ -d "$HOME/$DIR_NAME" ]] && $FILEICON_CMD set "$HOME/$DIR_NAME" "$ICON_PATH/$DIR_NAME.png"
+done

@@ -16,6 +16,6 @@ then
 fi
 
 # Install homebrew packages
-brew install wget bash-completion
+brew install nvm wget bash-completion
 
 exit 0

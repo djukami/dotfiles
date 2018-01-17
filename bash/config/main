@@ -40,7 +40,7 @@ BWHITE='\e[47m'
 
 
 # Set the prompt
-PS1="$MAGENTA\u:$CYAN\w$MAGENTA → $NO_COLOR"
+PS1="\[$MAGENTA\]\u:\[$CYAN\]\w\[$MAGENTA\] → \[$NO_COLOR\]"
 
 
 

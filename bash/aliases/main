@@ -24,3 +24,15 @@ function psport() {
 function killport() {
     lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | uniq | xargs kill -9
 }
+
+function confirm {
+    echo -n -e "$EWHITE${1:-Are you sure?}$NO_COLOR "
+    read -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        return 0
+    else
+        return 1
+    fi
+}
